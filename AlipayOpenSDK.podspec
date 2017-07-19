@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "openssl" do |ss|
-    ss.source_files = "AliPaySDK-Extend/openssl"
+    ss.source_files = "openssl"
     ss.header_dir = "openssl"
   end
 
