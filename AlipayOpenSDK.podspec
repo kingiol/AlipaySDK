@@ -8,7 +8,19 @@ Pod::Spec.new do |s|
   s.platform            = :ios, "6.0"
   s.source              = { :git => "https://github.com/kingiol/AlipaySDK.git", :tag => "#{s.version}" }
   s.resources           = '**/*.bundle'
-  s.source_files        = 'AliPaySDK-Extend/*.{h,m}', 'AliPaySDK-Extend/Util/*.{h,m}', 'UtiAliPaySDK-Extend/openssl/*.{h,m}'
+
+  s.subspec "AliPaySDK-Extend" do |ss|
+    ss.source_files = "AliPaySDK-Extend"
+    ss.subspec "Util" do |u|
+      u.source_files = "AliPaySDK-Extend/Util"
+    end
+  end
+
+  s.subspec "openssl" do |ss|
+    ss.source_files = "openssl"
+    ss.header_dir = "openssl"
+  end
+
   s.vendored_frameworks = '**/*.framework'
   s.vendored_libraries  = 'AliPaySDK-Extend/libcrypto.a', 'AliPaySDK-Extend/libssl.a'
   s.public_header_files = "AlipaySDK.framework/Headers/**/*.h", "openssl/*.h"
