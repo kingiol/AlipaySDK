@@ -27,7 +27,9 @@ Pod::Spec.new do |s|
 
   s.subspec "openssl" do |ss|
     ss.source_files = "openssl"
-    ss.public_headers = "openssl"
+    ss.public_header_files = "openssl/*.h"
+    ss.libraries = 'ssl', 'crypto'
+    openssl.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/openssl/**" }
   end
 
 end
