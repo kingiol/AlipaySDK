@@ -9,8 +9,12 @@ Pod::Spec.new do |s|
   s.source              = { :git => "https://github.com/kingiol/AlipaySDK.git", :tag => "#{s.version}" }
   s.resources           = '**/*.bundle'
   s.vendored_frameworks = '**/*.framework'
-  s.vendored_libraries  = 'AliPaySDK-Extend/libcrypto.a', 'AliPaySDK-Extend/libssl.a'
-  s.public_header_files = "AlipaySDK.framework/Headers/**/*.h", "openssl/*.h"
+
+  s.frameworks          = "CoreMotion", "SystemConfiguration", "CoreTelephony", "QuartzCore", "CoreText", "CoreGraphics", "CFNetwork", "UIKit", "Foundation"
+  s.libraries           = "z", "c++"
+  s.requires_arc        = true
+
+  s.public_header_files = "AlipaySDK.framework/Headers/**/*.h"
 
   s.subspec "AliPaySDK-Extend" do |ss|
     ss.source_files = "AliPaySDK-Extend"
@@ -21,10 +25,10 @@ Pod::Spec.new do |s|
 
   s.subspec "openssl" do |ss|
     ss.source_files = "openssl"
-    ss.header_dir = "openssl"
+    ss.public_header_files = "openssl/**/*.h"
+    ss.preserve_paths = 'AliPaySDK-Extend/libcrypto.a', 'AliPaySDK-Extend/libssl.a'
+    ss.vendored_libraries = 'AliPaySDK-Extend/libcrypto.a', 'AliPaySDK-Extend/libssl.a'
+    ss.libraries = 'ssl', 'crypto'
+    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/openssl/**" }
   end
-
-  s.frameworks          = "CoreMotion", "SystemConfiguration", "CoreTelephony", "QuartzCore", "CoreText", "CoreGraphics", "CFNetwork", "UIKit", "Foundation"
-  s.libraries           = "z", "c++"
-  s.requires_arc        = true
 end
