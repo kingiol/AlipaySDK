@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.libraries           = "z", "c++"
   s.requires_arc        = true
 
-  s.public_header_files = "AlipaySDK.framework/Headers/**/*.h", "openssl/*.h"
+  s.public_header_files = "AlipaySDK.framework/Headers/**/*.h"
 
   s.subspec "AliPaySDK-Extend" do |ss|
     ss.source_files = "AliPaySDK-Extend"
