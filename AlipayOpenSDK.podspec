@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 
   s.subspec "openssl" do |ss|
     ss.source_files = "openssl"
-    ss.header_dir = "openssl"
+    ss.public_headers = "openssl"
   end
 
 end
