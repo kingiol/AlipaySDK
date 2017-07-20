@@ -16,13 +16,13 @@ Pod::Spec.new do |s|
 
   s.public_header_files = "AlipaySDK.framework/Headers/**/*.h"
 
-  s.subspec 'Util' do |util|
-    util.source_files = "AliPaySDK-Extend/Util/**/*.{h,m}"
-  end
+#  s.subspec 'Util' do |util|
+#    util.source_files = "AliPaySDK-Extend/Util/**/*.{h,m}"
+#    util.dependency 'OpenSSL-Universal', '~> 1.0.2.10'
+#    util.libraries = 'ssl', 'crypto'
+#  end
 
-  s.dependency 'OpenSSL-Universal', '~> 1.0.2.10'
-
-  s.libraries = 'z', 'c++'
+  s.libraries = 'z', 'c++'  #, 'ssl', 'crypto'
   s.requires_arc        = true
 
 end
