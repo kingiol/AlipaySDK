@@ -11,8 +11,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = '**/*.framework'
 
   s.frameworks          = "CoreMotion", "SystemConfiguration", "CoreTelephony", "QuartzCore", "CoreText", "CoreGraphics", "CFNetwork", "UIKit", "Foundation"
-  s.libraries           = "z", "c++"
-  s.requires_arc        = true
 
   s.source_files   = 'AliPaySDK-Extend/*.{h,m}'
 
@@ -20,15 +18,11 @@ Pod::Spec.new do |s|
 
   s.subspec 'Util' do |util|
     util.source_files = "AliPaySDK-Extend/Util/**/*.{h,m}"
-    util.dependency 'AlipayOpenSDK/openssl'
   end
 
-  s.subspec 'openssl' do |ss|
-    ss.ios.source_files = "AliPaySDK-Extend/openssl/**/*.h"
-    ss.ios.public_header_files = "AliPaySDK-Extend/openssl/**/*.h"
-    ss.ios.header_dir = "openssl"
-    ss.ios.preserve_paths = "AliPaySDK-Extend/libcrypto.a", "AliPaySDK-Extend/libssl.a" 
-    ss.ios.vendored_libraries = "AliPaySDK-Extend/libcrypto.a", "AliPaySDK-Extend/libssl.a" 
-  end
+  s.dependency 'OpenSSL-Universal', '~> 1.0.2.10'
+
+  s.libraries = 'z', 'c++'
+  s.requires_arc        = true
 
 end
