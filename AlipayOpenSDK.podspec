@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Util' do |util|
     util.source_files = "AliPaySDK-Extend/Util/**/*.{h,m}"
-    util.dependency 'openssl'
+    util.dependency 'AliPaySDK-Extend/openssl'
   end
 
   s.subspec 'openssl' do |ss|
