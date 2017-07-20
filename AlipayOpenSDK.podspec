@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Util' do |util|
     util.source_files = "AliPaySDK-Extend/Util/**/*.{h,m}"
-    util.dependency 'AliPaySDK-Extend/openssl'
+    util.dependency 'AlipayOpenSDK/openssl'
   end
 
   s.subspec 'openssl' do |ss|
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     ss.public_header_files = "AliPaySDK-Extend/openssl/**/*.h"
     ss.ios.vendored_libraries = "AliPaySDK-Extend/libcrypto.a", "AliPaySDK-Extend/libssl.a" 
     ss.libraries = 'ssl', 'crypto'
-    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/AliPaySDK-Extend/openssl/**" }
+    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/AlipayOpenSDK/openssl/**" }
   end
 
 end
