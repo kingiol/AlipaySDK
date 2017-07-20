@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     ss.public_header_files = "AliPaySDK-Extend/openssl/**/*.h"
     ss.ios.vendored_libraries = "AliPaySDK-Extend/libcrypto.a", "AliPaySDK-Extend/libssl.a" 
     ss.libraries = 'ssl', 'crypto'
-    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/AlipayOpenSDK/openssl/**" }
+    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/AliPaySDK-Extend/openssl/**" }
   end
 
 end
