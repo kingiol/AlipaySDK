@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.frameworks          = "CoreMotion", "SystemConfiguration", "CoreTelephony", "QuartzCore", "CoreText", "CoreGraphics", "CFNetwork", "UIKit", "Foundation"
 
-  s.source_files   = 'AliPaySDK-Extend/*.{h,m}'
+#  s.source_files   = 'AliPaySDK-Extend/*.{h,m}'
 
   s.public_header_files = "AlipaySDK.framework/Headers/**/*.h"
 
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
 #  end
 
   s.libraries = 'z', 'c++'  #, 'ssl', 'crypto'
-  s.requires_arc        = true
+  s.requires_arc  = true
 
 end
