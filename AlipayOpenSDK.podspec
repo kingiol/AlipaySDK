@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = "AlipayOpenSDK"
-  s.version             = "15.4.0"
+  s.version             = "15.4.1"
   s.summary             = "AlipaySDK on iOS."
   s.homepage            = "https://open.alipay.com"
   s.license             = { :type => "Copyright", :text => "支付宝(中国)网络技术有限公司  版权所有." }
